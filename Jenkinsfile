@@ -12,7 +12,7 @@ pipeline {
                 sh './test.sh'
             }
         }
-    }
+    
   
     stage('Deliver') {
             steps {
@@ -20,5 +20,6 @@ pipeline {
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './kill.sh'
             }
+        }
     }
 }
