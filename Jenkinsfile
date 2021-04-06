@@ -4,9 +4,15 @@ pipeline {
     stage('build') {
       steps {
         git(url: 'https://github.com/jenkins-docs/simple-node-js-react-npm-app.git', branch: 'master')
-        sh 'npm install'
-      }
-    }
+        sh '''nodejs(nodeInstall){
 
+   //here your npm commands p.e.
+
+   npm install
+   npm run prod
+}'''
+        }
+      }
+
+    }
   }
-}
