@@ -9,7 +9,7 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    container_name: myApp
+    container_name: my-app
     ports:
       - "3000:3000"
     env_file:
