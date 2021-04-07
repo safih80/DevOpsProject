@@ -1,0 +1,26 @@
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-App-deployment
+  labels:
+    group: my-App-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: node
+          image: devopsProject/my-app
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config-map
+                  key: APP_NAME
