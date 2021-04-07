@@ -18,6 +18,19 @@ spec:
       containers:
         - name: node
           image: devopsProject/my-app
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 8080
+            initialDelaySeconds: 130
+            timeoutSeconds: 10
+            failureThreshold: 10   
           env:
             - name: APP_NAME
               valueFrom:
