@@ -2,9 +2,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-App-deployment
+  name: my-app-deployment
   labels:
-    group: my-App-deployment
+    group: my-app-deployment
 spec:
   replicas: 2
   selector:
